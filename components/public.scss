@@ -1,0 +1,16 @@
+$primary:#139596;
+$title:#9f772e;
+.primary-text{
+  color: $primary!important;
+}
+.title-text{
+  color: $title!important;
+}
+@mixin posCenter{
+  transform: translateX(-50%) translateY(-50%);
+  left: 50%;
+  top:50%;
+}
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
