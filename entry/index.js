@@ -8,7 +8,7 @@ import 'font-awesome/css/font-awesome.css';
 import 'swiper/dist/css/swiper.css';
 
 
-import Index from '../components/part/index.vue';
+import Index from '../components/index.vue';
 new Vue({
     el:'#app',
     mounted:function () {

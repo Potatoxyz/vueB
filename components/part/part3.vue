@@ -1,6 +1,6 @@
 <template>
-    <div class="part3">
-    <div class="container pt-5 pb-5">
+    <div class="part part3">
+    <div class="container">
         <div class="row">
             <div class="col-md-6">
                 <h3 class="text-white">Happy & excited about company</h3>
@@ -36,10 +36,10 @@
             .fa{
                 font-size: 30px;
             }
-            .ptext{
-                font-size: 1rem;
-                color:darken(white,70%);
-            }
+        }
+        .ptext{
+            font-size: 1.2rem;
+            color:mix(black,saddlebrown,10%);
         }
     }
 </style>

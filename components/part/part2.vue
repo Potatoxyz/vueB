@@ -1,5 +1,5 @@
 <template>
-    <div class="container pt-5 pb-5">
+    <div class="container part part2">
         <div class="row">
             <h3 class="title-text w-100 text-center p-3">WE SPECIALIZE IN</h3>
             <p class="w-100 text-center p-2">Lorem Ipsum is simply dummy text <span class="primary-text">type setting industry</span>
@@ -10,7 +10,7 @@
                 <div class="icon-wrap p-5 mb-2">
                     <span class="fa fa-plane"></span>
                 </div>
-                <h4 class="card-title title-text">Planing</h4>
+                <h3 class="card-title">Planing</h3>
                 <p class="card-text">
                     Some quick example text to build on the <em>card title</em> and make up the bulk of the card's
                     content.
@@ -20,7 +20,7 @@
                 <div class="icon-wrap p-5 mb-2">
                     <span class="fa fa-plane"></span>
                 </div>
-                <h4 class="card-title title-text">Planing</h4>
+                <h4 class="card-title">Planing</h4>
                 <p class="card-text">
                     Some quick example text to build on the <em>card title</em> and make up the bulk of the card's
                     content.
@@ -30,7 +30,7 @@
                 <div class="icon-wrap p-5 mb-2">
                     <span class="fa fa-plane"></span>
                 </div>
-                <h4 class="card-title title-text">Planing</h4>
+                <h4 class="card-title">Planing</h4>
                 <p class="card-text">
                     Some quick example text to build on the <em>card title</em> and make up the bulk of the card's
                     content.
@@ -55,17 +55,23 @@
             flex-basis: 30.3333%;
         }
     }
-
-    .card .icon-wrap {
-        background: $primary;
-        display: inline-block;
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        text-align: center;
-        span {
-            color: white;
-            font-size: 30px;
+    .part2{
+        .card-title{
+            color:$title;
+        }
+        .card{
+            .icon-wrap {
+                background: $primary;
+                display: inline-block;
+                width: 120px;
+                height: 120px;
+                border-radius: 50%;
+                text-align: center;
+                span {
+                    color: white;
+                    font-size: 30px;
+                }
+            }
         }
     }
 </style>
