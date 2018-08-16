@@ -23,7 +23,7 @@
         </div>
     </div>
     <div class="banner-wrap">
-        <div class="swiper-container">
+        <div class="swiper-container" id="banner">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
                 <!-- Slides -->
@@ -61,12 +61,11 @@
 
             <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
             <b-collapse is-nav id="nav_collapse" class="justify-content-center">
-                <b-navbar-nav>
-                    <!--<b-nav-item href="#" v-bind:class="{'active':true}">Link</b-nav-item>-->
+                <b-navbar-nav ref="nav">
                     <b-nav-item href="#"  v-for="(item ,index) in Nav"
                                 v-bind:key="item.id"
-                                @click="doLink(index)"
-                                :class="{'active':index==activeNav}">{{item.title}}</b-nav-item>
+                                @click="doLink(item.id)"
+                                :class="{'active':item.id==innerActiveNavId}">{{item.title}}</b-nav-item>
                 </b-navbar-nav>
             </b-collapse>
         </b-navbar>
@@ -74,25 +73,52 @@
 </template>
 <script>
     import Swiper from 'swiper/dist/js/swiper';
-
+    import {Nav} from '../navMenu.js';
     export default {
         name: 'banner',
+        props:{
+            value:{
+                type:Number,
+                default:Nav[1].id
+            }
+        },
         data () {
             return{
-                Nav:[
-                    {id:1,title:'Home'},
-                    {id:2,title:'About'},
-                ],
-                activeNav:0
+                Nav:Nav,
+                innerActiveNavId:null
             }
         },
         methods: {
-            doLink:function (index) {
-                this.activeNav=index;
+            doLink:function (id) {
+                this.innerActiveNavId=id;
+//                this.$emit('navigate',id);
+                if(id!==1){
+                    $(".c-container .swiper-slide").css({"height":"400px"});
+                }
+                else{
+                    $(".c-container .swiper-slide").css({"height":"800px"});
+                }
+            }
+        },
+        //自定义双向绑定
+        watch:{
+            value:function (val) {
+                this.innerActiveNavId=val;
+            },
+            //利用v-model进行双向绑定时，父组件不需要写接收函数,prop默认value接受
+            //如果使用props绑定时，方法类似，父组件使用一个函数接收改变的值
+            //核心是使用props的副本，并监听改变
+            innerActiveNavId:function (val) {
+                console.log(val)
+              this.$emit("input",val)
             }
         },
         mounted:function () {
-            new Swiper('.swiper-container', {
+            //props的值在内部不可读写，所以使用innerActiveNavId控制,读写innerActiveNavId的值
+            this.innerActiveNavId=this.value;
+            console.log('传入值'+this.value);
+
+            new Swiper('#banner', {
                 // Optional parameters
                 loop: true,
                 speed: 800,
@@ -113,19 +139,8 @@
     }
 </script>
 <style lang="scss">
-    @import "../public";
+    @import "../common.scss";
     .c-container{
-        .swiper-button-prev, .swiper-button-next{
-            width: 40px;
-        }
-        .swiper-button-prev, .swiper-container-rtl .swiper-button-next{
-            background: url("../../assets/img/left.png") no-repeat;
-            left: 20px;
-        }
-        .swiper-button-next, .swiper-container-rtl .swiper-button-prev{
-            background: url("../../assets/img/right.png") no-repeat;
-            right: 20px;
-        }
         .swiper-slide{
             height: 800px;
             width:100%;

@@ -1,0 +1,18 @@
+$primary:#139596;
+$title:#9A6A13;
+$light-black:#8a8a8a;
+$light-white:#dadada;
+
+@mixin posCenter{
+  transform: translateX(-50%) translateY(-50%);
+  left: 50%;
+  top:50%;
+}
+@mixin flex-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}

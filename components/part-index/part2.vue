@@ -1,8 +1,8 @@
 <template>
     <div class="container part part2">
         <div class="row">
-            <h3 class="title-text w-100 text-center p-3">WE SPECIALIZE IN</h3>
-            <p class="w-100 text-center p-2">Lorem Ipsum is simply dummy text <span class="primary-text">type setting industry</span>
+            <h3 class="title-text w-100 text-center part-title">WE SPECIALIZE IN</h3>
+            <p class="w-100 text-center">Lorem Ipsum is simply dummy text <span class="primary-text">type setting industry</span>
                 esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat.</p>
         </div>
         <div class="row">
@@ -45,7 +45,7 @@
     }
 </script>
 <style lang="scss">
-    @import "../public";
+    @import "../common.scss";
     .fix-3w{
         margin: 1.5% 0;
     }

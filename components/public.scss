@@ -1,29 +1,37 @@
-$primary:#139596;
-$title:#9A6A13;
+@import "common.scss";
+.swiper-button-prev, .swiper-button-next{
+  width: 40px;
+}
+.swiper-button-prev, .swiper-container-rtl .swiper-button-next{
+  background: url("../assets/img/left.png") no-repeat;
+  left: 20px;
+}
+.swiper-button-next, .swiper-container-rtl .swiper-button-prev{
+  background: url("../assets/img/right.png") no-repeat;
+  right: 20px;
+}
+.part-title{
+  padding-bottom: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
 .primary-text{
   color: $primary!important;
+}
+.light-white-text{
+  color:$light-white;
 }
 .primary-bg{
   background: $primary!important;
 }
 .title-text{
   color: $title!important;
-  font-weight: bold;
-  text-transform: uppercase;
 }
 .part{
   padding:3rem 0;
 }
 .flex-center{
   display: flex;
-  align-items: center;
   justify-content: center;
-}
-@mixin posCenter{
-  transform: translateX(-50%) translateY(-50%);
-  left: 50%;
-  top:50%;
-}
-@function shade($color, $percentage) {
-  @return mix(black, $color, $percentage);
+  align-items: center;
 }

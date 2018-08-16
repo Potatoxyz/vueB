@@ -27,7 +27,7 @@
 </script>
 
 <style lang="scss">
-    @import "../public.scss";
+    @import "../common.scss";
     .part3{
         background: $primary;
         .quote{

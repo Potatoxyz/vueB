@@ -1,6 +1,6 @@
 <template>
     <div class="container part part-contact">
-        <h3 class="title-text w-100 text-center p-3">Get in touch</h3>
+        <h3 class="title-text w-100 text-center part-title">Get in touch</h3>
         <div class="row">
                 <form class="col-lg-8">
                     <div class="form-group">
@@ -35,7 +35,4 @@
     }
 </script>
 <style lang="scss">
-    .part-contact{
-
-    }
 </style>

@@ -1,8 +1,8 @@
 <template>
 
     <div class="container part part4">
-        <h3 class="title-text w-100 text-center p-3">Our News</h3>
-        <p class="w-100 text-center p-2">Duis aute irure dolor reprehenderit <span class="primary-text">in voluptate velit</span>
+        <h3 class="title-text w-100 text-center part-title">Our News</h3>
+        <p class="w-100 text-center">Duis aute irure dolor reprehenderit <span class="primary-text">in voluptate velit</span>
             esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat</p>
         <div class="row new-wrap">
             <div class="col-lg-6 new new-l fix-w2">
@@ -53,7 +53,7 @@
     }
 </script>
 <style lang="scss">
-    @import "../public.scss";
+    @import "../common.scss";
     .part4{
         .new-wrap{
             .new-l{
