@@ -9,7 +9,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack": "webpack",
-    "server": "webpack-dev-server --open"
+    "server": "webpack-dev-server --open  --devtool 'source-map'"
   },
   "author": "",
   "license": "ISC",

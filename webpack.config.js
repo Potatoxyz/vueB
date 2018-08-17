@@ -4,6 +4,8 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const  VueLoaderPlugin  = require('vue-loader/lib/plugin');
 module.exports = {
+    //开发时调试使用
+    // devtool: "source-map",
     entry: './entry/index.js',
     output: {
         path: path.resolve(__dirname, 'output'),
@@ -20,12 +22,22 @@ module.exports = {
             { test: /\.js$/,exclude: /node_modules/, use: 'babel-loader'},
             { test: /\.vue$/,exclude: /node_modules/, use: 'vue-loader'},
             {
-                test: /\.(eot|svg|ttf|woff|woff2|png|jpg)\w*/,
+                test: /\.(png|jpg)\w*/,
                 loader: 'url-loader',
                 options: {
                     limit: '1024',
                     name:'[name].[ext]',
-                    // outputPath:'bg/',
+                    outputPath:'img/',
+                    // publicPath:'output/'
+                }
+            },
+            {
+                test: /\.(eot|svg|ttf|woff|woff2)\w*/,
+                loader: 'url-loader',
+                options: {
+                    limit: '1024',
+                    name:'[name].[ext]',
+                    outputPath:'font/',
                     // publicPath:'output/'
                 }
             },

@@ -6,13 +6,21 @@
             <Part2></Part2>
             <Part3></Part3>
             <Part4></Part4>
-            <!--<Part5></Part5>-->
+            <Part5 :navItem="Nav[0]" :activeNavId="activeNavId"></Part5>
             <Concat></Concat>
         </div>
         <div :ref="Nav[1].title" style="display: none">
             <History></History>
             <Team></Team>
-            <Part5></Part5>
+            <Advantages></Advantages>
+            <Part5 :navItem="Nav[1]" :activeNavId="activeNavId"></Part5>
+        </div>
+
+        <div :ref="Nav[2].title" style="display: none">
+            <Profile></Profile>
+        </div>
+        <div :ref="Nav[3].title" style="display: none">
+            <Concat></Concat>
         </div>
         <PartFoot></PartFoot>
         <TopArrow></TopArrow>
@@ -29,12 +37,14 @@
     import TopArrow from './part-index/top-arrow.vue';
     import History from './part-about/history.vue';
     import Team from './part-about/team.vue';
+    import Advantages from './part-about/Advantages.vue';
+    import Profile from './part-profile/profile.vue'
     import {Nav} from './navMenu.js';
     export default {
         name: 'index',
         data:function () {
             return{
-                activeNavId:2,
+                activeNavId:1,
                 Nav:Nav
             }
         },
@@ -70,7 +80,9 @@
             PartFoot,
             TopArrow,
             History,
-            Team
+            Team,
+            Advantages,
+            Profile
         }
     }
 </script>

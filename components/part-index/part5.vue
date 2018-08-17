@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid part part5">
         <h3 class="text-center text-white part-title">SOME OF OUR CLIENTS</h3>
-        <div class="swiper-container" id="banner2">
+        <div class="swiper-container" :id="innerBannerId">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
                 <!-- Slides -->
@@ -28,24 +28,45 @@
     import Swiper from 'swiper/dist/js/swiper';
     export default {
         name: 'part5',
-        mounted:function () {
-            new Swiper('#banner2', {
-                slidesPerView: 4,
-                loop:true,
-                autoplay:true,
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
-                breakpoints: {
-                    992: {
-                        slidesPerView: 3,
+        props:{
+            navItem:null,
+            activeNavId:null
+        },
+        computed:{
+            innerBannerId:function () {
+                return 'banner'+this.navItem.id;
+            }
+        },
+        watch:{
+            activeNavId:function () {
+                if(this.activeNavId===this.navItem.id)
+                {this.initSwiper();console.log('reload Swiper')}
+            }
+        },
+        methods:{
+            initSwiper:function () {
+                new Swiper('#'+this.innerBannerId, {
+                    slidesPerView: 4,
+                    loop:true,
+                    autoplay:true,
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
                     },
-                    768: {
-                        slidesPerView: 1,
+                    breakpoints: {
+                        992: {
+                            slidesPerView: 3,
+                        },
+                        768: {
+                            slidesPerView: 1,
+                        }
                     }
-                }
-            })
+                })
+            }
+        },
+        mounted:function () {
+            console.log(this.innerBannerId);
+            this.initSwiper();
         }
     }
 </script>
@@ -53,10 +74,11 @@
     @import "../common.scss";
     .part5{
         height: auto;
-        background: url("../../assets/img/clients-bg.jpg");
+        background: url("../../assets/img/clients-bg.jpg") no-repeat;
         background-attachment: fixed;
-        background-size: 100%;
-        #banner2{
+        background-size: cover;
+        background-position: center;
+        .swiper-container{
             width: 85%;
             .swiper-wrapper{
                 .swiper-slide{
